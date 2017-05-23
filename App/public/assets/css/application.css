@@ -1,0 +1,225 @@
+html {
+    color: rgb(42, 54, 60);
+    background-color: rgb(246, 180, 50);
+}
+
+body {
+    font: 100 14pt "Source Sans Pro";
+    margin: 0;
+    overflow-y: scroll;
+}
+
+table {
+    width: 100%;
+}
+
+h1 {
+    font-size: 24pt;
+}
+
+h2 {
+    font-size: 20pt;
+}
+
+.centeredView {
+    width: 90%;
+    max-width: 48em;
+    margin: 0 auto;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+.grid.alignCenter {
+    align-items: center;
+}
+
+.aBtn {
+    display: inline-block;
+    color: rgb(246, 180, 50);
+    background-color: rgb(42, 54, 60);
+    -webkit-border-radius: .2em;
+    -moz-border-radius: .2em;
+    border-radius: .2em;
+    cursor: pointer;
+    padding: .6em;
+    text-decoration: none;
+    transition: background-color .2s ease-in;
+}
+
+.aBtn:hover {
+    background-color: rgb(2, 2, 4);
+}
+
+#mainNav ul {
+    list-style: none;
+    padding: 0;
+}
+
+#mainNav ul li {
+    display: inline-block;
+}
+
+#mainNav ul li a {
+    display: inline-block;
+    color: rgb(246, 180, 50);
+    background-color: rgb(42, 54, 60);
+    -webkit-border-radius: .2em;
+    -moz-border-radius: .2em;
+    border-radius: .2em;
+    padding: .6em;
+    margin: 0 .6em 0 0;
+    text-decoration: none;
+    transition: background-color .2s ease-in;
+}
+
+#mainNav ul li a:hover, #mainNav ul li a.isActive {
+    background-color: rgb(2, 2, 4);
+}
+
+@media screen and (max-width: 32em) {
+    #mainNav ul li {
+        display: block;
+    }
+
+    #mainNav ul li a {
+        margin-bottom: .6em;
+    }
+
+    #mainNav ul li:last-child a {
+        margin-bottom: 0;
+    }
+}
+
+.heartBeat, .noHeartBeat, .noHeartBeatBecausePaused {
+    display: inline-block;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    width: 16pt;
+    height: 16pt;
+}
+
+.heartBeat {
+    background-color: rgb(94, 186, 94);
+}
+
+.noHeartBeat {
+    background-color: rgb(220, 80, 76);
+}
+
+.noHeartBeatBecausePaused {
+    background-color: rgb(220, 150, 76);
+}
+
+@media screen and (max-width: 32em) {
+    #sensorData h2 {
+        margin-bottom: .335em;
+    }
+
+    #sensorData [class^="col-"] {
+        text-align: left;
+    }
+
+    #sensorData .aBtn {
+        margin-bottom: .6em;
+    }
+}
+
+.sensorBuffer .aRecord {
+    background-color: rgb(254, 254, 254);
+    -webkit-border-radius: .2em;
+    -moz-border-radius: .2em;
+    border-radius: .2em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sensorBuffer .aRecord:first-child {
+    font-weight: 400;
+}
+
+.sensorBuffer .aRecord li {
+    padding: 1.2em .6em;
+    text-align: center;
+}
+
+.sensorBuffer .aRecord:nth-child(2n) {
+    background-color: rgb(246, 246, 246);
+}
+
+.sensorBuffer .aRecord li span {
+    display: block;
+    font-weight: bold;
+    margin-bottom: .4em;
+}
+
+@media screen and (min-width: 48em) {
+    .sensorBuffer .aRecord {
+        display: table;
+        width: 100%;
+        margin-bottom: -.2em;
+    }
+
+    .sensorBuffer .aRecord li {
+        display: table-cell;
+    }
+
+    .sensorBuffer .aRecord li.aqiIndex {
+        width: 10%;
+    }
+
+    .sensorBuffer .aRecord li.dn7c3ca007Pm2Dot5 {
+        width: 10%;
+    }
+
+    .sensorBuffer .aRecord li.dhtHumidity {
+        width: 10%;
+    }
+
+    .sensorBuffer .aRecord li.dhtTemperature {
+        width: 10%;
+    }
+
+    .sensorBuffer .aRecord li.gpsPositioning {
+        width: 20%;
+    }
+
+    .sensorBuffer .aRecord li.gpsDateTime {
+        width: 20%;
+    }
+
+    .sensorBuffer .aRecord li span {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 32em) and (max-width: 48em) {
+    .sensorBuffer .aRecord li {
+        display: inline-block;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 48em) {
+    .sensorBuffer .aRecord {
+        -webkit-box-shadow: 0 0 2px 1px rgba(42, 54, 60, .06);
+        -moz-box-shadow: 0 0 2px 1px rgba(42, 54, 60, .06);
+        box-shadow: 0 0 2px 1px rgba(42, 54, 60, .06);
+        padding: .8em 0;
+        margin: 0 0 .6em 0;
+    }
+
+    .sensorBuffer .aRecord.columnStructure {
+        display: none;
+    }
+
+    .sensorBuffer .aRecord li {
+        padding: .4em;
+    }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "aire-app",
+  "version": "0.0.1",
+  "main": "service.Server.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "estructura": "^0.1.6",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "pug": "^2.0.0-rc.1"
+  }
+}

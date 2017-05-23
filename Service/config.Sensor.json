@@ -1,0 +1,22 @@
+[
+  {
+    "uniqueId": "jXGq7Q5d",
+    "sensorName": "AdafruitUltimateGps.Gpgga",
+    "serialInterface": "/dev/ttyS0"
+  },
+  {
+    "uniqueId": "h2UqJRas",
+    "sensorName": "Dht",
+    "sensorType": 22,
+    "gpioPin": 6
+  },
+  {
+    "_comment": "Should be placed after the Dht Sensor within the Configuration as the Dht Sensor is a Dependency.",
+    "uniqueId": "x3B3sC3r",
+    "humiditySensor": "h2UqJRas",
+    "sensorName": "Dn7c3ca007",
+    "spiChannel": 0,
+    "analogChannel": 2,
+    "gpioPinLed": 25
+  }
+]
