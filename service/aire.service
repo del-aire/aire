@@ -1,0 +1,16 @@
+[Unit]
+Description=Aire Collection Service
+
+[Service]
+Type=simple
+StandardOutput=journal
+StandardError=journal
+#
+# Specify the Location of this Directory:
+WorkingDirectory=/home/pi/aire/service
+ExecStart=/usr/local/bin/node index.js
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
