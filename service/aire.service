@@ -8,7 +8,7 @@ StandardError=journal
 #
 # Specify the Location of this Directory:
 WorkingDirectory=/home/pi/aire/service
-ExecStart=/usr/local/bin/node index.js
+ExecStart=/usr/local/bin/node service.Sensor.js
 Restart=always
 RestartSec=10s
 
