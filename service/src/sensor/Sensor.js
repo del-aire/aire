@@ -1,4 +1,4 @@
-const EventEmitter = require('events').EventEmitter, Time = require('././Time')
+const EventEmitter = require('events').EventEmitter
 
 /**
  * @abstract
@@ -106,7 +106,7 @@ class Sensor {
      * @param {{}} readingObj
      */
     _fireReadingEvent(readingObj) {
-        this.lastReadingEventFiredAt = Time.getPreciseTimeInMilliseconds()
+        this.lastReadingEventFiredAt = Date.now()
 
         this._fireEvent('reading', readingObj)
     }

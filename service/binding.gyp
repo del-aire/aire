@@ -3,13 +3,13 @@
         {
             "target_name": "dht",
             "sources": [
-                "./src/Sensor/WiringPiSetup.cpp",
+                "./src/sensor/WiringPiSetup.cpp",
 
-                "./src/Sensor/Time.cpp",
-                "./src/Sensor/Process.cpp",
+                "./src/sensor/Time.cpp",
+                "./src/sensor/Process.cpp",
 
-                "./src/Sensor/Dht/Dht.cpp",
-                "./src/Sensor/Dht/DhtAddon.cpp"
+                "./src/sensor/Dht/Dht.cpp",
+                "./src/sensor/Dht/DhtAddon.cpp"
             ],
             "libraries": [ "-lwiringPi" ]
         }

@@ -15,7 +15,7 @@ process.on('unhandledRejection', (withError) => {
 })
 
 /**
- * @type {Collector}
+ * @see {Collector}
  */
 const Collector = require('./src/Collector')
 
@@ -24,7 +24,7 @@ const Collector = require('./src/Collector')
  * | Inter Process Communication
  * +--------------------------------------------------
  */
-const sIpc = require('./src/Ipc')
+const sIpc = require('./src/Ipc'), sRollingFile = require('./src/RollingFile')
 
 /**
  * +--------------------------------------------------
@@ -38,9 +38,9 @@ const onStartup = async() => {
     const collectionService = await Collector.fromJsonFile(__dirname + '/config.Sensor.json')
 
     /**
-     * Store the Data locally with NeDb.
+     * Communicate over the Network.
      *
-     * @see Local.js
+     * @see Ipc.js
      */
     const aServer = sIpc(collectionService)
 
@@ -60,16 +60,12 @@ const onStartup = async() => {
         intelLogger.warn('An Error occurred.', anError)
     })
 
-    collectionService.startGathering()
-
     /**
-     * Construct an Api Service from an Id, Secret and Endpoint.
-     *
-     * @type {{startService: Function, stopService: Function}}
+     * @see RollingFile.js
      */
-    const apiService = require('./src/Api')(apiConfig.deviceId, apiConfig.deviceSecret, apiConfig.apiEndpoint)
+    sRollingFile(collectionService, aServer)
 
-    apiService.startService()
+    collectionService.startGathering()
 }
 
 onStartup().then(

@@ -1,7 +1,6 @@
 const EventEmitter = require('events').EventEmitter
 
 const Puid = require('puid')
-const Time = require('./util/Time')
 
 const SensorFactory = require('./sensor/Factory')
 
@@ -105,7 +104,7 @@ class Collector {
             const useStore = typeof this._mandatoryData[columnName] !== 'undefined' ? this._mandatoryData : this._unknownData
 
             useStore[columnName] = {
-                updatedAt: Time.getPreciseTimeInMilliseconds(), sensorValue: readingObj[columnName]
+                updatedAt: Date.now(), sensorValue: readingObj[columnName]
             }
         }
 
