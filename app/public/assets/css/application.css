@@ -176,28 +176,24 @@ h2 {
         display: table-cell;
     }
 
-    .sensorBuffer .aRecord li.aqiIndex {
-        width: 10%;
-    }
-
-    .sensorBuffer .aRecord li.dn7c3ca007Pm2Dot5 {
-        width: 10%;
+    .sensorBuffer .aRecord li.airQuality {
+        width: 12%;
     }
 
     .sensorBuffer .aRecord li.dhtHumidity {
-        width: 10%;
+        width: 12%;
     }
 
     .sensorBuffer .aRecord li.dhtTemperature {
-        width: 10%;
+        width: 12%;
     }
 
     .sensorBuffer .aRecord li.gpsPositioning {
-        width: 20%;
+        width: 22%;
     }
 
     .sensorBuffer .aRecord li.gpsDateTime {
-        width: 20%;
+        width: 22%;
     }
 
     .sensorBuffer .aRecord li span {

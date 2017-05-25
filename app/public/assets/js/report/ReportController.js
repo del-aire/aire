@@ -43,23 +43,37 @@
                 $http.get('/api/sensorBuffer').then(
                     function onFulfilled(httpResponse) {
                         $scope.sensorBuffer = httpResponse.data.sensorBuffer.map(function (aRecord) {
-                            /**
-                             * @type {Number}
-                             */
-                            aRecord.dhtHumidity = aRecord.dhtHumidity.toFixed(2);
-                            /**
-                             * @type {Number}
-                             */
-                            aRecord.dhtTemperature = aRecord.dhtTemperature.toFixed(2);
+                            if (isNaN(aRecord.dhtHumidity) === false && isNaN(aRecord.dhtTemperature) === false) {
+                                /**
+                                 * @type {Number}
+                                 */
+                                aRecord.dhtHumidity = aRecord.dhtHumidity.toFixed(2);
+                                /**
+                                 * @type {Number}
+                                 */
+                                aRecord.dhtTemperature = aRecord.dhtTemperature.toFixed(2);
+                            }
 
-                            /**
-                             * @type {Number}
-                             */
-                            aRecord.gpggaLatitude = aRecord.gpggaLatitude.toFixed(4);
-                            /**
-                             * @type {Number}
-                             */
-                            aRecord.gpggaLongitude = aRecord.gpggaLongitude.toFixed(4);
+                            if (aRecord.gpggaLatitude && aRecord.gpggaLongitude) {
+                                /**
+                                 * @type {Number}
+                                 */
+                                aRecord.gpggaLatitude = aRecord.gpggaLatitude.toFixed(4);
+                                /**
+                                 * @type {Number}
+                                 */
+                                aRecord.gpggaLongitude = aRecord.gpggaLongitude.toFixed(4);
+
+                                /**
+                                 * @type {String}
+                                 */
+                                aRecord.gpggaLatitudeLongitude = aRecord.gpggaLatitude + '°, ' + aRecord.gpggaLongitude;
+                            }
+                            else {
+                                aRecord.gpggaLatitudeLongitude = '-';
+
+                                aRecord.gpggaTime = '-';
+                            }
 
                             return aRecord
                         }).reverse();

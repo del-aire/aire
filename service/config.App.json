@@ -3,7 +3,7 @@
   "rollingFile": {
     "baseDir": "./data/",
     "fileName": "Particle",
-    "maxSize": 20971520,
+    "maxSize": 52428800,
     "maxFiles": 2
   }
 }

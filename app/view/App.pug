@@ -7,7 +7,7 @@ block main
     div.centeredView
         h1 Air Quality Monitor
 
-    nav#mainNav
+    // nav#mainNav
         ul.centeredView
             li
                 a(href="/#").isActive Real-Time Data
@@ -15,7 +15,7 @@ block main
     div.centeredView(ng-controller="ReportController")
         div#sensorData.grid.alignCenter
             div.col-xs-12.col-sm-6
-                h2 Sensor Data &nbsp;
+                h2 Real-Time Data &nbsp;
                     div(ng-class="isPaused ? 'noHeartBeatBecausePaused' : (heartBeat ? 'heartBeat' : 'noHeartBeat')")
             div.col-xs-12.col-sm-6.alignRight
                 a(ng-click="isPaused = !isPaused", ng-show="isPaused").aBtn Resume
@@ -26,10 +26,8 @@ block main
 
         div.sensorBuffer
             ul.aRecord.columnStructure
-                li.aqiIndex
-                    | AQI
-                li.dn7c3ca007Pm2Dot5
-                    | PM2.5
+                li.airQuality
+                    | Air Quality
                 li.dhtHumidity
                     | %
                 li.dhtTemperature
@@ -40,12 +38,9 @@ block main
                     | Date
 
             ul(ng-repeat="aRecord in sensorBuffer").aRecord
-                li.aqiIndex
-                    span AQI
+                li.airQuality
+                    span Air Quality
                     | -
-                li.dn7c3ca007Pm2Dot5
-                    span Particle Matter 2.5
-                    | {{aRecord.dn7c3ca007ParticleMatter2Dot5}}
                 li.dhtHumidity
                     span Humidity
                     | {{aRecord.dhtHumidity}} %
@@ -54,7 +49,7 @@ block main
                     | {{aRecord.dhtTemperature}} °C
                 li.gpsPositioning
                     span Global Positioning
-                    | {{aRecord.gpggaLatitude}}°, {{aRecord.gpggaLongitude}}°
+                    | {{aRecord.gpggaLatitudeLongitude}}
                 li.gpsDateTime
                     span Time
                     | {{aRecord.gpggaTime}}
