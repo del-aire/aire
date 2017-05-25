@@ -1,0 +1,16 @@
+[Unit]
+Description=Aire App
+
+[Service]
+Type=simple
+StandardOutput=journal
+StandardError=journal
+#
+# Specify the Location of this Directory:
+WorkingDirectory=/home/pi/aire/app
+ExecStart=/usr/local/bin/node service.Server.js
+Restart=always
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target

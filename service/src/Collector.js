@@ -60,6 +60,9 @@ class Collector {
             },
             gpggaLongitude: {
                 updatedAt: null, sensorValue: null
+            },
+            gpggaSatelliteCount: {
+                updatedAt: null, sensorValue: null
             }
         })
 

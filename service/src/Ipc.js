@@ -12,8 +12,6 @@ module.exports = (collectionService, portNumberOrUnixPath = 8260) => {
      */
     const aServer = new Server()
 
-    aServer.listen(portNumberOrUnixPath)
-
     collectionService.on('record', (distributedId, rData, oData) => {
         aServer.emit('sensor.Record',
             Object.assign(
@@ -21,6 +19,8 @@ module.exports = (collectionService, portNumberOrUnixPath = 8260) => {
             )
         )
     })
+
+    aServer.listen(portNumberOrUnixPath)
 
     return aServer
 }

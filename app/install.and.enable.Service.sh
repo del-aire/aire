@@ -10,9 +10,9 @@ fi
 
 #
 # Copy the Service File:
-cp aire.service /lib/systemd/system/aire.service
+cp aire-app.service /lib/systemd/system/aire-app.service
 
 #
 # Enable & Start:
-sudo systemctl enable aire
-sudo systemctl restart aire
+sudo systemctl enable aire-app
+sudo systemctl restart aire-app

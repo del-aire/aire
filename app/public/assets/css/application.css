@@ -113,6 +113,15 @@ h2 {
     background-color: rgb(220, 150, 76);
 }
 
+#downloadLatest {
+    margin: -0.335em 0 0.67em 0;
+}
+
+#downloadLatest a {
+    color: inherit;
+    font-weight: bold;
+}
+
 @media screen and (max-width: 32em) {
     #sensorData h2 {
         margin-bottom: .335em;

@@ -137,7 +137,11 @@ class Server {
 
         ipcServer.on('error',
             (withError) => {
-                this.publish('error', withError)
+                process.nextTick(
+                    () => {
+                        this.publish('error', withError)
+                    }
+                )
             }
         )
 
@@ -171,7 +175,10 @@ class Server {
         /**
          * @type {String}
          */
-        const writeCargo = JSON.stringify({eventName: eventName, hauledCargo: haulCargo}) + this.eventDelimiter
+        const writeCargo = JSON.stringify({
+                eventName: eventName,
+                hauledCargo: haulCargo
+            }) + this.eventDelimiter
 
         this.socketSet.forEach(aSocket => {
             if (aSocket === ignoreSocket) return

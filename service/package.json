@@ -5,6 +5,7 @@
     "intel": "^1.1.2",
     "puid": "^1.0.7",
     "request": "^2.81.0",
-    "serialport": "^4.0.7"
+    "serialport": "^4.0.7",
+    "streamroller": "^0.4.1"
   }
 }

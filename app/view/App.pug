@@ -11,8 +11,6 @@ block main
         ul.centeredView
             li
                 a(href="/#").isActive Real-Time Data
-            li
-                a(href="/#app.config") Configuration
 
     div.centeredView(ng-controller="ReportController")
         div#sensorData.grid.alignCenter
@@ -22,6 +20,9 @@ block main
             div.col-xs-12.col-sm-6.alignRight
                 a(ng-click="isPaused = !isPaused", ng-show="isPaused").aBtn Resume
                 a(ng-click="isPaused = !isPaused", ng-hide="isPaused").aBtn Pause
+
+        div#downloadLatest(ng-hide="!heartBeat || !rollingFile")
+            a(href="/api/rollingFile") Download the Latest Data
 
         div.sensorBuffer
             ul.aRecord.columnStructure

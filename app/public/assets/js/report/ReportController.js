@@ -15,6 +15,11 @@
         $scope.heartBeat = false;
 
         /**
+         * @type {Boolean}
+         */
+        $scope.rollingFile = false;
+
+        /**
          * @type {Array.<*>}
          */
         $scope.sensorBuffer = [];
@@ -37,7 +42,27 @@
 
                 $http.get('/api/sensorBuffer').then(
                     function onFulfilled(httpResponse) {
-                        $scope.sensorBuffer = httpResponse.data.sensorBuffer.reverse();
+                        $scope.sensorBuffer = httpResponse.data.sensorBuffer.map(function (aRecord) {
+                            /**
+                             * @type {Number}
+                             */
+                            aRecord.dhtHumidity = aRecord.dhtHumidity.toFixed(2);
+                            /**
+                             * @type {Number}
+                             */
+                            aRecord.dhtTemperature = aRecord.dhtTemperature.toFixed(2);
+
+                            /**
+                             * @type {Number}
+                             */
+                            aRecord.gpggaLatitude = aRecord.gpggaLatitude.toFixed(4);
+                            /**
+                             * @type {Number}
+                             */
+                            aRecord.gpggaLongitude = aRecord.gpggaLongitude.toFixed(4);
+
+                            return aRecord
+                        }).reverse();
 
                         /**
                          * Re-execute the `#.timeoutFn` to retrieve data from our
@@ -47,7 +72,7 @@
                          */
                         timeoutRef = setTimeout(timeoutFn, timeoutMilliseconds);
 
-                        $scope.updatedAt = Date.now(), $scope.heartBeat = true;
+                        $scope.updatedAt = Date.now(), $scope.heartBeat = httpResponse.data.heartBeat, $scope.rollingFile = httpResponse.data.rollingFile;
                     },
                     function onRejected(withError) {
                         /**

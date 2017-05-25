@@ -1,3 +1,9 @@
 {
-  "logFile": "./log/Particle.log"
+  "logFile": "./log/Particle.log",
+  "rollingFile": {
+    "baseDir": "./data/",
+    "fileName": "Particle",
+    "maxSize": 20971520,
+    "maxFiles": 2
+  }
 }

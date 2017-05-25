@@ -63,7 +63,7 @@ const onStartup = async() => {
     /**
      * @see RollingFile.js
      */
-    sRollingFile(collectionService, aServer)
+    sRollingFile(collectionService, appConfig.rollingFile, aServer)
 
     collectionService.startGathering()
 }
