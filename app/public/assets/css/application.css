@@ -174,26 +174,35 @@ h2 {
 
     .sensorBuffer .aRecord li {
         display: table-cell;
+        vertical-align: middle;
     }
 
     .sensorBuffer .aRecord li.airQuality {
-        width: 12%;
+        width: 10%;
     }
 
     .sensorBuffer .aRecord li.dhtHumidity {
-        width: 12%;
+        width: 10%;
     }
 
     .sensorBuffer .aRecord li.dhtTemperature {
-        width: 12%;
+        width: 10%;
     }
 
     .sensorBuffer .aRecord li.gpsPositioning {
-        width: 22%;
+        width: 20%;
     }
 
     .sensorBuffer .aRecord li.gpsDateTime {
-        width: 22%;
+        width: 20%;
+    }
+
+    .sensorBuffer .aRecord li.createdAt {
+        width: 10%;
+    }
+
+    .sensorBuffer .aRecord:not(.columnStructure) li.createdAt {
+        font-size: 10pt;
     }
 
     .sensorBuffer .aRecord li span {

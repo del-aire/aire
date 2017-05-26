@@ -55,6 +55,9 @@ class Collector {
             gpggaTime: {
                 updatedAt: null, sensorValue: null
             },
+            gprmcDate: {
+                updatedAt: null, sensorValue: null
+            },
             gpggaLatitude: {
                 updatedAt: null, sensorValue: null
             },
@@ -117,7 +120,7 @@ class Collector {
         const distributedId = this._distributedIdGenerator.generate()
 
         this._eventEmitter.emit(
-            'record', distributedId, this._extractValueProperty(this._mandatoryData), this._extractValueProperty(this._unknownData)
+            'record', distributedId, Object.assign(this._extractValueProperty(this._mandatoryData), {_createdAt: Date.now()}), this._extractValueProperty(this._unknownData)
         )
     }
 

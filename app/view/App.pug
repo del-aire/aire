@@ -36,6 +36,8 @@ block main
                     | Lat, Long
                 li.gpsDateTime
                     | Date
+                li.createdAt
+                    | Pi Time
 
             ul(ng-repeat="aRecord in sensorBuffer").aRecord
                 li.airQuality
@@ -51,8 +53,11 @@ block main
                     span Global Positioning
                     | {{aRecord.gpggaLatitudeLongitude}}
                 li.gpsDateTime
-                    span Time
-                    | {{aRecord.gpggaTime}}
+                    span Date
+                    | {{aRecord.gpggaGprmcTimeDate}}
+                li.createdAt
+                    span Pi Time
+                    | {{aRecord._createdAt}}
 
         footer
             p Air Quality Monitor

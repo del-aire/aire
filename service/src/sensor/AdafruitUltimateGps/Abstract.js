@@ -1,6 +1,11 @@
 const Irregular = require('./../Irregular'), SerialPort = require('serialport')
 
 /**
+ * @type {Object}
+ */
+const serialInterfaceMapping = Object.create(null)
+
+/**
  * @class {Abstract}
  */
 class Abstract extends Irregular {
@@ -89,13 +94,19 @@ class Abstract extends Irregular {
     startGathering() {
         super.startGathering()
 
+        if (serialInterfaceMapping[this.serialInterface]) {
+            this._serialPort = serialInterfaceMapping[this.serialInterface]
+
+            return
+        }
+
         /**
          * Open a Serial Connection to read Data from the Gps. In case of
          * an Error, report it as a Fatal Error.
          *
          * @type {SerialPort}
          */
-        this._serialPort = new SerialPort(this.serialInterface, {
+        this._serialPort = serialInterfaceMapping[this.serialInterface] = new SerialPort(this.serialInterface, {
             baudRate: 9600,
             parser: SerialPort.parsers.readline('\n')
         }, (withError) => {

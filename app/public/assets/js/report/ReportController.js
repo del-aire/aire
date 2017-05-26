@@ -71,8 +71,25 @@
                             }
                             else {
                                 aRecord.gpggaLatitudeLongitude = '-';
+                            }
 
-                                aRecord.gpggaTime = '-';
+                            if (aRecord.gpggaTime && aRecord.gprmcDate) {
+                                /**
+                                 * @type {String}
+                                 */
+                                aRecord.gpggaGprmcTimeDate = aRecord.gpggaTime + ' ' + aRecord.gprmcDate
+                            }
+                            else {
+                                aRecord.gpggaGprmcTimeDate = '-'
+                            }
+
+                            if (aRecord._createdAt) {
+                                let dT = new Date(aRecord._createdAt)
+
+                                /**
+                                 * @type {String}
+                                 */
+                                aRecord._createdAt = ('0' + dT.getHours()).substr(-2) + ':' + ('0' + dT.getMinutes()).substr(-2) + ':' + ('0' + dT.getSeconds()).substr(-2) + ' ' + ('0' + dT.getDate()).substr(-2) + '-' + ('0' + (dT.getMonth() + 1)).substr(-2) + '-' + dT.getFullYear()
                             }
 
                             return aRecord
