@@ -14,5 +14,10 @@
     "sensorName": "Dht",
     "sensorType": 22,
     "gpioPin": 6
+  },
+  {
+    "uniqueId": "kL8jN2sA",
+    "sensorName": "GrooveAirQualityMcp3008",
+    "analogChannel": 0
   }
 ]

@@ -42,7 +42,7 @@ block main
             ul(ng-repeat="aRecord in sensorBuffer").aRecord
                 li.airQuality
                     span Air Quality
-                    | -
+                    | {{aRecord.grooveAirQuality}}
                 li.dhtHumidity
                     span Humidity
                     | {{aRecord.dhtHumidity}} %

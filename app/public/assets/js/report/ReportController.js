@@ -83,6 +83,10 @@
                                 aRecord.gpggaGprmcTimeDate = '-'
                             }
 
+                            if (!aRecord.grooveAirQuality) {
+                                aRecord.grooveAirQuality = '-'
+                            }
+
                             if (aRecord._createdAt) {
                                 let dT = new Date(aRecord._createdAt)
 

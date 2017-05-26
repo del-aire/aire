@@ -22,9 +22,9 @@ module.exports = (collectionService, rollingFileConf, ipcServer) => {
 
     collectionService.on('record', (distributedId, rData, oData) => {
         writeWith.write(
-            [distributedId, rData.dhtHumidity, rData.dhtTemperature, rData.gpggaTime, rData.gprmcDate, rData.gpggaLatitude, rData.gpggaLongitude, rData.gpggaSatelliteCount, JSON.stringify(oData)].join(';') + '\n'
+            [distributedId, rData.grooveAirQuality, rData.dhtHumidity, rData.dhtTemperature, rData.gpggaTime, rData.gprmcDate, rData.gpggaLatitude, rData.gpggaLongitude, rData.gpggaSatelliteCount, JSON.stringify(oData)].join(';') + '\n'
         )
-
+ 
         ipcServer.emit('rollingFile.Path', {rollingFile: filePath})
     })
 }

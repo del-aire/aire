@@ -66,6 +66,12 @@ class Collector {
             },
             gpggaSatelliteCount: {
                 updatedAt: null, sensorValue: null
+            },
+            /**
+             * Air Quality.
+             */
+            grooveAirQuality: {
+                updatedAt: null, sensorValue: null
             }
         })
 

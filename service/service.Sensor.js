@@ -1,4 +1,12 @@
 /**
+ * @noteToSelf Should be based on the Number of Sensor we want to read concurrently
+ * through our C++ Addon(s).
+ *
+ * @type {Number}
+ */
+process.env.UV_THREADPOOL_SIZE = 8
+
+/**
  * +--------------------------------------------------
  * | Configuration
  * +--------------------------------------------------
